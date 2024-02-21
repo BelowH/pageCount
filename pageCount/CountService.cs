@@ -1,4 +1,5 @@
 using pageCount.Domains;
+using pageCount.Domains.Models;
 
 namespace pageCount;
 
@@ -11,8 +12,19 @@ public interface ICountService
 
 public class CountService : ICountService
 {
-    public Task<bool> SubmitCount(CountDto countDto)
+
+    private readonly IDatabaseRepository _databaseRepository;
+    
+    public CountService(IDatabaseRepository databaseRepository)
     {
-        throw new NotImplementedException();
+        _databaseRepository = databaseRepository;
+    }
+    
+    
+    public async Task<bool> SubmitCount(CountDto countDto)
+    {
+        Count count = new Count(countDto);
+        bool insertSuccessful = await _databaseRepository.AddCount(count);
+        return insertSuccessful;
     }
 }

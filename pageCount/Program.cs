@@ -15,8 +15,9 @@ builder.Configuration.AddJsonFile(Path.Combine(workingDirectory, "appsettings.De
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
+
+builder.Services.AddTransient<IDatabaseRepository, DatabaseRepository>();
 builder.Services.AddTransient<ICountService, CountService>();
 
 
@@ -24,12 +25,6 @@ WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseMiddleware<BasicAuthMiddleware>(app.Configuration);
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
 app.UseHttpsRedirection();
 

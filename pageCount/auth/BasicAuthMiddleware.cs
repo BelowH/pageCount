@@ -30,15 +30,14 @@ public class BasicAuthMiddleware
                 string password = decodedUsernamePassword.Split(':', 2)[1];
 
                 // Validate credentials
-                if (IsAuthorized(username, password))
+                if (!IsAuthorized(username, password))
                 {
-                    await _next(context);
-                    return;
+                    throw new Exception();
                 }
-               
+                await _next(context);
             }
         }
-        finally
+        catch
         {
             // Not authorized
             context.Response.Headers["WWW-Authenticate"] = "Basic";
