@@ -17,7 +17,6 @@ public class ResultController : ControllerBase
 
 
     [HttpGet]
-    [Route("[controller]/by/identifier")]
     public async Task<IActionResult> GetResultByIdentifier([FromQuery] string primaryIdentifier,[FromQuery] string secondaryIdentifier = "")
     {
         try

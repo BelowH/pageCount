@@ -19,7 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddTransient<IDatabaseRepository, DatabaseRepository>();
 builder.Services.AddTransient<ICountService, CountService>();
-
+builder.Services.AddTransient<IResultService, ResultService>();
 
 WebApplication app = builder.Build();
 
