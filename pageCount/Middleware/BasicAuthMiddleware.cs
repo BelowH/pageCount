@@ -1,7 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace pageCount.auth;
+namespace pageCount.Middleware;
 
 public class BasicAuthMiddleware
 {

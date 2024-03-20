@@ -3,14 +3,23 @@ using pageCountClient.Repository;
 
 namespace pageCountClient.Services;
 
-internal class PageCountService(PageCountOptions options, IPageCountRepository repository) : IPageCountService
+internal class PageCountService : IPageCountService
 {
-    private PageCountOptions _options = options;
-    private bool _analyticsEnabled = options.AnalyticsEnabledAsDefault;
-    
-    private readonly bool _throwOnError = options.ThrowOnError;
-    private readonly string _userId = Guid.NewGuid().ToString();
 
+    private PageCountOptions _options;
+    private bool _analyticsEnabled;
+    
+    private readonly bool _throwOnError;
+    private readonly string _userId = Guid.NewGuid().ToString();
+    private readonly IPageCountRepository _repository;
+    public PageCountService(PageCountOptions options, IPageCountRepository repository)
+    {
+        _options = options;
+        _repository = repository;
+        _analyticsEnabled = options.AnalyticsEnabledAsDefault;
+        _throwOnError = options.ThrowOnError;
+    }
+    
     public void DisableAnalytics() => _analyticsEnabled = false;
 
     public void EnableAnalytics() => _analyticsEnabled = true;
@@ -19,7 +28,7 @@ internal class PageCountService(PageCountOptions options, IPageCountRepository r
     {
         try
         {
-            await repository.SubmitCount(countDto);
+            await _repository.SubmitCount(countDto);
             return true;
         }
         catch (Exception e)

@@ -1,6 +1,6 @@
 using System.Reflection;
 using pageCount;
-using pageCount.auth;
+using pageCount.Middleware;
 
 string workingDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!);
 
@@ -25,6 +25,7 @@ WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseMiddleware<BasicAuthMiddleware>(app.Configuration);
+app.UseMiddleware<RateLimitingMiddleware>(app.Configuration);
 
 app.UseHttpsRedirection();
 
