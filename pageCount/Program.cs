@@ -6,7 +6,7 @@ string workingDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecuti
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration.AddJsonFile(Path.Combine(workingDirectory, "appsettings.json"));
+//builder.Configuration.AddJsonFile(Path.Combine(workingDirectory, "appsettings.json"));
 #if DEBUG
 builder.Configuration.AddJsonFile(Path.Combine(workingDirectory, "appsettings.Development.json"));
 #endif

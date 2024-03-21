@@ -5,9 +5,9 @@ EXPOSE 443
 
 # Set environment variables
 
-ENV usernameHash "[this is where i would enter my username as SHA256]"
-ENV passwordHash "[this is where i would enter my password as SHA256]"
-ENV rateLimit "100"
+ENV usernameHash=""
+ENV passwordHash=""
+ENV rateLimit=""
 
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
