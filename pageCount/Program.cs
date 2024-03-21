@@ -10,7 +10,7 @@ builder.Configuration.AddJsonFile(Path.Combine(workingDirectory, "appsettings.js
 #if DEBUG
 builder.Configuration.AddJsonFile(Path.Combine(workingDirectory, "appsettings.Development.json"));
 #endif
-
+builder.Configuration.AddEnvironmentVariables();
 
 builder.Services.AddControllers();
 

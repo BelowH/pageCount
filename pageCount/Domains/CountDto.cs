@@ -14,11 +14,11 @@ public class CountDto
     [Required]
     [JsonPropertyName("primaryCountType")]
     public string PrimaryCountType { get; set; } = "";
-
+    
     [JsonPropertyName("secondaryCountType")]
-    public string SecondaryCountType { get; set; } = "";
+    public string? SecondaryCountType { get; set; } = "";
 
     [JsonPropertyName("timestamp")]
-    public DateTime Timestamp { get; set; } = DateTime.Now;
+    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
 }

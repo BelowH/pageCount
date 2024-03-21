@@ -28,6 +28,11 @@ internal class PageCountService : IPageCountService
     {
         try
         {
+            if (!_analyticsEnabled)
+            {
+                throw new SubmitCountException("Analytics are disabled");
+            }
+            
             await _repository.SubmitCount(countDto);
             return true;
         }

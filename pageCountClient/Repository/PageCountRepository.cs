@@ -23,6 +23,7 @@ internal class PageCountRepository : IPageCountRepository
     {
         string contentAsString = JsonSerializer.Serialize(countDto);
         HttpContent content = new StringContent(contentAsString);
+        content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
         HttpResponseMessage response = await _client.PostAsync("count",content);
         response.EnsureSuccessStatusCode();
     }
