@@ -8,11 +8,11 @@ lightweight page analytics api written in .NET and using SQL Lite
 pull the docker image from [here](https://hub.docker.com/r/belowh/pagecount) using
 
 ``` Console
-docker pull belowh/pagecount
+docker pull belowh/pagecount:v0_1_1
 ```
 and start the container like this
 ``` Console
-docker run -d -p 80:8080 -e usernameHash=[Put the SHA256 hash of your username here] -e passwordHash=[Put the SHA256 hash of your password here] -e rateLimit=100 pagecount
+docker run -d -p 80:8080 -e usernameHash=[Put the SHA256 hash of your username here] -e passwordHash=[Put the SHA256 hash of your password here] -e rateLimit=100 belowh/pagecount:v0_1_1
 ```
 For the `usernameHash` and `passwordHash` fields,
 please input the respective hashes of your chosen username and password.
