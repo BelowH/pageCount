@@ -56,7 +56,7 @@ Body:
     "userId" : "1234",
     "amount" : 1,
     "primaryCountType" : "test",
-    "secondaryCountType" : "test secondary" //optional
+    "secondaryCountType" : "test secondary"
     "timestamp" : "2024-03-22T15:08:25.873Z"
 }
 ```
@@ -64,14 +64,7 @@ Returns 200 OK if everything worked. Or a corresponding error if something goes 
 
 #### GET /result
 ```http
-GET /result
-URL PARAM:
-    primaryIdentifier
-    secondaryIdentifier
-```
-e.g.
-```http
-/result?primaryIdentifier=test&secondaryIdentifier=testSecond
+GET /result?primaryIdentifier=test&secondaryIdentifier=testSecond
 ```
 returns an array of `counts` like this:
 ```http
