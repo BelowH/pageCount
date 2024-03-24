@@ -56,7 +56,7 @@ public class DatabaseRepository : IDatabaseRepository
         try
         {
             string query =
-                "SELECT countid, amount, primarycounttype, secondarycounttype, timestamp FROM countdata WHERE primarycounttype = @PrimaryCountType";
+                "SELECT countid, userId, amount, primarycounttype, secondarycounttype, timestamp FROM countdata WHERE primarycounttype = @PrimaryCountType";
             if (!string.IsNullOrWhiteSpace(secondaryCountType))
             {
                 query += " AND secondarycounttype = @SecondaryCountType";

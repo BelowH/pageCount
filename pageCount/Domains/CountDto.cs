@@ -5,8 +5,9 @@ namespace pageCount.Domains;
 
 public class CountDto
 {
+    [Required]
     [JsonPropertyName("userId")]
-    public string UserId = Guid.NewGuid().ToString();
+    public string? UserId { get; set; }
     
     [JsonPropertyName("amount")]
     public int Amount { get; set; } = 1;

@@ -4,7 +4,6 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<PackageId>pageCount</PackageId>
 		<ProductVersion>0.1.0.0</ProductVersion>
 		<Version>0.1.0</Version>
@@ -13,7 +12,7 @@
 		<Description>client side package for "pageCount" a lightweight page analytics api written in .NET and using SQL Lite</Description>
 		<Copyright>Christoph Belohaubek | 2024</Copyright>
 		<PackageProjectUrl>https://github.com/BelowH/pageCount</PackageProjectUrl>
-		<PackageLicenseUrl>https://github.com/BelowH/pageCount/blob/main/LICENSE</PackageLicenseUrl>
+		<License>https://github.com/BelowH/pageCount/blob/main/LICENSE</License>
 		<RepositoryUrl>https://github.com/BelowH/pageCount</RepositoryUrl>
 	</PropertyGroup>
 
